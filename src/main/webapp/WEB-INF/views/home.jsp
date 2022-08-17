@@ -14,8 +14,11 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
-
+<hr>
+<a href="./member/login.mg">로그인</a>
 <a href="./member/join.mg">회원가입</a>
+<hr>
+<a href="./member/search.mg">멤버 검색</a>
 
 </body>
 </html>
