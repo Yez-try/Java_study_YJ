@@ -4,9 +4,9 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
-<mapper namespace="com.mybatis.bankMembers.BankMembersDAO">
-	<select id="setJoin">
-		INSERT INTO BANKMEMBERS
+<mapper namespace="com.mybatis.test.bankMembers.BankMembersDAO">
+	<select id="setJoin" parameterType="com.mybatis.test.bankMembers.BankMembersDTO" resultType="com.mybatis.test.bankMembers.BankMembersDTO">
+		INSERT INTO BANKMEMBERS (ID, PW, NAME, EMAIL, PHONE, LV) VALUES (#{id},#{pw},#{name},#{email},#{phone},#{lv}) 
 	</select>
 
 </mapper>
