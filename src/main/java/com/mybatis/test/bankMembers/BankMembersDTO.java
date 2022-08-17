@@ -1,4 +1,4 @@
-package com.mybatis.bankMembers;
+package com.mybatis.test.bankMembers;
 
 public class BankMembersDTO {
 	private String id;

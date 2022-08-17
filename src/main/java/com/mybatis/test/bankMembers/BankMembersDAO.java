@@ -1,4 +1,4 @@
-package com.mybatis.bankMembers;
+package com.mybatis.test.bankMembers;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +9,10 @@ public class BankMembersDAO {
 	
 	@Autowired
 	private SqlSession session;
-	private final String NAMESPACE = "com.mybatis.bankMembers.BankMembersDAO.";
+	private final String NAMESPACE = "com.mybatis.test.bankMembers.BankMembersDAO.";
 
+	public int setJoin(BankMembersDTO dto) {
+		return session.insert(NAMESPACE+"setJoin", dto);
+	}
+	
 }
