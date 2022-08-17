@@ -21,4 +21,16 @@ public class BankBookDAO {
 	public List<BankBookDTO> list(BankBookDTO bankBookDTO)throws Exception{
 		return sqlSession.selectList(NAMESPACE+"list",bankBookDTO);
 	}
+	//통장상세
+	public BankBookDTO detail(BankBookDTO bankBookDTO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"detail",bankBookDTO);
+	}
+	//통장수정
+	public int update(BankBookDTO bankBookDTO)throws Exception{
+		return sqlSession.update(NAMESPACE+"update",bankBookDTO);
+	}
+	//통장삭제
+	public int delete(BankBookDTO bankBookDTO)throws Exception{
+		return sqlSession.delete(NAMESPACE+"delete",bankBookDTO);
+	}
 }

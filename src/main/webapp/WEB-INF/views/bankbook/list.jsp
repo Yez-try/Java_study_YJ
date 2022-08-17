@@ -17,14 +17,28 @@
 				<th>통장이율</th>
 				<th>판매여부</th>
 			</tr>
+			
 		<c:forEach items="${list}" var="list">
 			<tr>
+			
 			<td>${list.bookNum}</td>
-			<td>${list.bookName}</td>
+			<td>
+			<a href="detail.ms?bookNum=${list.bookNum}">
+			${list.bookName}
+			</a>
+			</td>
 			<td>${list.bookRate}</td>
-			<td>${list.bookSale}</td>
+			
+			<c:if test="${list.bookSale eq 1}">
+			<td>판매중</td>
+			</c:if>
+			<c:if test="${list.bookSale eq 0}">
+			<td>판매중단</td>
+			</c:if>
+			
 			</tr>
 		</c:forEach>
 		</table>
+		<a href="add.ms">ADD</a>
 </body>
 </html>
