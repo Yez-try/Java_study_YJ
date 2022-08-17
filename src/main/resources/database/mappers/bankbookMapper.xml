@@ -12,8 +12,30 @@ VALUES(
 	#{bookName},
 	#{bookRate},
 	1	)
-
-
 </insert>
+
+<select id="list" parameterType="com.mybatis.test.bankBook.BankBookDTO" resultType="com.mybatis.test.bankBook.BankBookDTO">
+SELECT *
+FROM BANKBOOK
+ORDER BY BOOKNUM DESC
+</select>
+
+<select id="detail" parameterType="com.mybatis.test.bankBook.BankBookDTO" resultType="com.mybatis.test.bankBook.BankBookDTO">
+SELECT *
+FROM BANKBOOK
+WHERE BOOKNUM =#{bookNum}
+</select>
+
+<update id="update" parameterType="com.mybatis.test.bankBook.BankBookDTO">
+UPDATE BANKBOOK
+SET BOOKNAME=#{bookName}, BOOKRATE=#{bookRate}
+WHERE BOOKNUM = #{bookNum}
+</update>
+<delete id="delete" parameterType="com.mybatis.test.bankBook.BankBookDTO">
+DELETE BANKBOOK
+WHERE BOOKNUM=#{bookNum}
+</delete>
+
+
 
 </mapper>	
