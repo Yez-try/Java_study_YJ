@@ -12,8 +12,17 @@ VALUES(
 	#{bookName},
 	#{bookRate},
 	1	)
-
-
 </insert>
+
+<select id="list" parameterType="com.mybatis.test.bankBook.BankBookDTO" resultType="com.mybatis.test.bankBook.BankBookDTO">
+SELECT *
+FROM BANKBOOK
+ORDER BY BOOKNUM DESC
+</select>
+
+
+
+
+
 
 </mapper>	

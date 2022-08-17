@@ -1,11 +1,13 @@
 package com.mybatis.test.bankBook;
 
 import java.util.Calendar;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping(value="/bankbook/*")
@@ -31,7 +33,14 @@ public class BankBookController {
 	}
 	
 	@RequestMapping(value="list.ms", method=RequestMethod.GET)
-	public void list()throws Exception{
+	public ModelAndView list(BankBookDTO bankBookDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		List<BankBookDTO> al = bankBookService.list(bankBookDTO);
+		System.out.println(bankBookDTO.getBookNum());
+		
+		mv.addObject("list", al);
+		mv.setViewName("bankbook/list");
+		return mv;
 		
 	}
 	
