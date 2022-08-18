@@ -6,7 +6,7 @@
 	
 <mapper namespace="com.mybatis.test.bankAccount.BankAccountDAO">
 
-<insert id="accountAdd" parameterType="com.mybatis.test.bankAccount.BankBookDTO">
+<insert id="accountAdd" parameterType="com.mybatis.test.bankAccount.BankAccountDTO">
 INSERT INTO BANKACCOUNT
 VALUES(
 	account_seq.nextval,

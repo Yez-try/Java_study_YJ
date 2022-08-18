@@ -20,7 +20,7 @@
 		<tr>
 			<td>${detail.bookNum}</td>
 			<td>
-			<a href="acoount.ms?bookNum${detail.bookNum}">
+			<a href="../bankaccount/accountAdd.ms?bookNum=${detail.bookNum}">
 			${detail.bookName}
 			</a>
 			</td>

@@ -17,12 +17,14 @@ public class BankAccountController {
 	private BankAccountService bankAccountService;
 	
 	//통장개설
-	@RequestMapping(value="add.ms",method=RequestMethod.GET)
+	@RequestMapping(value="accountAdd.ms",method=RequestMethod.GET)
 	public String accountAdd(BankAccountDTO bankAccountDTO,HttpSession session)throws Exception{
 		System.out.println("accountAdd get 실행");
 		BankMembersDTO bankMembersDTO=(BankMembersDTO)session.getAttribute("user");
 		bankAccountDTO.setId(bankMembersDTO.getId());
+		System.out.println(bankAccountDTO.getBookNum());
 		bankAccountService.accountAdd(bankAccountDTO);
+		System.out.println("CONTROLLER");
 	
 		return "redirect:../bankbook/list.ms";
 	}

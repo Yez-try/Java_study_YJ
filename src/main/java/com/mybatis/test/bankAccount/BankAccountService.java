@@ -11,6 +11,7 @@ public class BankAccountService {
 	
 	//계좌개설
 	public int accountAdd(BankAccountDTO bankAccountDTO)throws Exception{
+		System.out.println("SERVICE");
 		return bankAccountDAO.accountAdd(bankAccountDTO);
 	}
 }

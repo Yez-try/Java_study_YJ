@@ -13,6 +13,7 @@ public class BankAccountDAO {
 	
 	//계좌개설
 	public int accountAdd(BankAccountDTO bankAccountDTO)throws Exception{
+		System.out.println("DAO");
 		return sqlSession.insert(NAMESPACE+"accountAdd",bankAccountDTO);
 	}
 
