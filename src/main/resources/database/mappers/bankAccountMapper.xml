@@ -7,14 +7,7 @@
 <mapper namespace="com.mybatis.test.bankAccount.BankAccountDAO">
 
 <insert id="accountAdd" parameterType="com.mybatis.test.bankAccount.BankAccountDTO">
-INSERT INTO BANKACCOUNT
-VALUES(
-	account_seq.nextval,
-	#{id},
-	#{bookNum},
-	sysdate
-)
-
+INSERT INTO BANKACCOUNT VALUES(account_seq.nextval,	#{id},	#{bookNum},	sysdate)
 </insert>
 
 </mapper>	
