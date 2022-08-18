@@ -19,7 +19,11 @@
 		</tr>
 		<tr>
 			<td>${detail.bookNum}</td>
-			<td>${detail.bookName}</td>
+			<td>
+			<a href="acoount.ms?bookNum${detail.bookNum}">
+			${detail.bookName}
+			</a>
+			</td>
 			<td>${detail.bookRate}</td>
 			<c:if test="${detail.bookSale eq 1 }">
 			<td>판매중</td>
