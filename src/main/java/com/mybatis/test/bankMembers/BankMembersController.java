@@ -3,6 +3,7 @@ package com.mybatis.test.bankMembers;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -49,14 +50,26 @@ public class BankMembersController {
 	}
 	
 	@RequestMapping(value = "login.mg", method=RequestMethod.POST)
-	public ModelAndView login(ModelAndView mv, BankMembersDTO dto) throws Exception{
+	public String login(HttpSession session, BankMembersDTO dto) throws Exception{
 	System.out.println("db 로그인 확인 실행");
 	
 	dto = service.getLogin(dto);
-	mv.addObject("user",dto);
-	mv.setViewName("redirect:../");
+	System.out.println(dto.getName());
 	
-	return mv;
+	session.setAttribute("user", dto);
+	
+	return "redirect:../";
+	}
+	
+	@RequestMapping(value = "logout.mg")
+	public String logout(HttpSession session) throws Exception{
+		System.out.println("로그아웃");
+		
+		session.invalidate();
+		
+		System.out.println("완료");
+		
+		return "redirect:./login.mg";
 	}
 	
 	@RequestMapping(value = "search.mg", method=RequestMethod.GET)
@@ -70,8 +83,6 @@ public class BankMembersController {
 		
 		BankMembersDTO dto = new BankMembersDTO();
 		dto.setId(search);
-		
-		System.out.println(dto.getId());
 		
 		List<BankMembersDTO> memberList = service.getSearchByID(dto);
 		request.setAttribute("memberList", memberList);
